@@ -1,0 +1,14 @@
+import urllib.request
+import json
+import time
+from bs4 import BeautifulSoup
+import re
+import datetime
+
+class AppURLopener(urllib.request.FancyURLopener):
+    version = "Mozilla/5.0"
+    
+opener = AppURLopener()
+url = 'https://www.etherchain.org/txs/data?draw=1&start=0&length=100'
+response = json.loads(opener.open(url).read().decode())['data']
+response[:10]
